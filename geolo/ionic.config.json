@@ -1,5 +1,7 @@
 {
   "name": "geolo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
