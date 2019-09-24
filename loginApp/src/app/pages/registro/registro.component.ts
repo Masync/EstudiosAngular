@@ -1,0 +1,33 @@
+import { Component, OnInit } from '@angular/core';
+// * Importacion del usuario model
+import { UsuarioModel } from '../../models/usuario.model';
+import { NgForm } from '@angular/forms';
+
+@Component({
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
+})
+export class RegistroComponent implements OnInit {
+//  * Aqui se inicializa el usuario Model
+users: UsuarioModel;
+efecto;
+  constructor() { }
+
+  ngOnInit() {
+    // * Aqui se instancia el usuario Model y se instancian los atributos
+    this.users = new UsuarioModel();
+    // this.users.email = 'Masync@gmail.com';
+    this.users.name = 'Masync';
+    // this.users.password = '_Masync';
+
+   }
+
+   OnSubmit(registroForm: NgForm) {
+     this.efecto = 'animated hinge';
+     console.log(this.users);
+     
+     
+   }
+
+}
