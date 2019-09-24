@@ -1,27 +1,35 @@
-<div class="limiter">
+<div class="limiter animated fadeInLeft">
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90">
-            <form class="login100-form validate-form flex-sb flex-w">
+            <form (ngSubmit)="onSubmit(Lf)" #Lf="ngForm" class="login100-form validate-form flex-sb flex-w">
 
                 <span class="login100-form-title p-b-51  animated slideInUp">
                     Login
                 </span>
 
-                <!-- <span class="text-danger">El correo es obligatorio</span> -->
+                <span *ngIf="Lf.submitted && Lf.controls['username'].errors"
+                class="text-danger animated fadeIn">El Username es obligatorio</span>
                 <div class="wrap-input100 m-b-16">
                     <input class="input100" 
-                           type="text" 
+                           type="text"
+                           required
+                           email
+                           [(ngModel)]="users.email"
                            name="username" 
                            placeholder="Username">
 
                     <span class="focus-input100"></span>
                 </div>
                 
-                <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
+                <span *ngIf="Lf.submitted && Lf.controls['pass'].errors"
+                class="text-danger animated fadeIn">La contraseña debe tener minimo 6 caracteres</span>
                 <div class="wrap-input100 m-b-16" data-validate = "Password is required">
                     <input class="input100"
                            type="password" 
-                           name="pass" 
+                           name="pass"
+                           minlength="6"
+                           required
+                           [(ngModel)]="users.password"
                            placeholder="Password">
                     <span class="focus-input100"></span>
                 </div>
